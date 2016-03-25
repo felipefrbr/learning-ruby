@@ -13,7 +13,9 @@ puts "Entre com o número"
 chute = gets
 puts "Será que acertou? Você chutou " + chute
 
-if chute.to_i == numero_secreto
+acertou = chute.to_i == numero_secreto
+
+if acertou
 	puts "Acertou!"
 else
 	puts "Errou!"
