@@ -26,3 +26,42 @@ else
 	end
 
 end
+
+
+puts "Tentativa 2"
+puts "Entre com o número"
+chute = gets
+puts "Será que acertou? Você chutou " + chute
+
+acertou = chute.to_i == numero_secreto
+
+if acertou
+    puts "Acertou!"
+    else
+    maior = numero_secreto > chute.to_i
+    if maior
+        puts "O número secreto é maior"
+        else
+        puts "O número secreto é menor"
+    end
+    
+end
+
+puts "Tentativa 3"
+puts "Entre com o número"
+chute = gets
+puts "Será que acertou? Você chutou " + chute
+
+acertou = chute.to_i == numero_secreto
+
+if acertou
+    puts "Acertou!"
+    else
+    maior = numero_secreto > chute.to_i
+    if maior
+        puts "O número secreto é maior"
+        else
+        puts "O número secreto é menor"
+    end
+    
+end
