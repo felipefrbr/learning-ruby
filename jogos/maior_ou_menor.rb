@@ -1,10 +1,10 @@
 def da_boas_vindas
     puts "Bem vindo ao jogo da adivinhação"
     puts "Qual é o seu nome?"
-    nome = gets
+    nome = gets.strip
 
     puts "\n\n\n\n\n\n"
-    puts "Começaremos o jogo para você, " + nome
+    puts "Começaremos o jogo para você, #{nome}"
 end
 
 def sorteia_numero_secreto
@@ -16,11 +16,11 @@ end
 
 def pede_um_numero(chutes, tentativa, limite_de_tentativas)
     puts "\n\n\n\n"
-    puts "Tentativa " + tentativa.to_s + " de " + limite_de_tentativas.to_s
-    puts "Chutes até agora: " + chutes.to_s
+    puts "Tentativa #{tentativa} de #{limite_de_tentativas}"
+    puts "Chutes até agora: #{chutes}"
     puts "Entre com o número"
-    chute = gets
-    puts "Será que acertou? Você chutou " + chute
+    chute = gets.strip
+    puts "Será que acertou? Você chutou #{chute}"
     return chute.to_i
 end
 
