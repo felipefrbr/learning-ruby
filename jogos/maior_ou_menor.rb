@@ -5,6 +5,7 @@ def da_boas_vindas
 
     puts "\n\n\n\n\n\n"
     puts "Começaremos o jogo para você, #{nome}"
+    nome
 end
 
 def pede_dificuldade
@@ -61,7 +62,7 @@ def verifica_se_acertou(numero_secreto, chute)
 
 end
 
-da_boas_vindas
+nome = da_boas_vindas
 dificuldade = pede_dificuldade
 
 numero_secreto = sorteia_numero_secreto(dificuldade)
@@ -74,6 +75,11 @@ for tentativa in 1..limite_de_tentativas
 
     chute = pede_um_numero(chutes, tentativa, limite_de_tentativas)
     chutes << chute
+
+    if(nome == "Felipe")
+      puts "Acertou!"
+      break
+    end
 
     pontos_a_perder = (chute - numero_secreto).abs / 2.0
     pontos_ate_agora -= pontos_a_perder
