@@ -28,7 +28,7 @@ def sorteia_numero_secreto(dificuldade)
     end
 
     puts "Escolhendo um número secreto entre 0 e #{maximo}..."
-    sorteado = rand(maximo)
+    sorteado = rand(maximo) + 1
     puts "Escolhido...  que tal advinhar hoje nosso número secreto?"
     return sorteado
 end
@@ -62,32 +62,50 @@ def verifica_se_acertou(numero_secreto, chute)
 
 end
 
+def joga(nome, dificuldade)
+  numero_secreto = sorteia_numero_secreto(dificuldade)
+
+  pontos_ate_agora = 1000
+  limite_de_tentativas = 5
+  chutes = []
+
+  for tentativa in 1..limite_de_tentativas
+
+      chute = pede_um_numero(chutes, tentativa, limite_de_tentativas)
+      chutes << chute
+
+      if(nome == "Felipe")
+        puts "Acertou!"
+        break
+      end
+
+      pontos_a_perder = (chute - numero_secreto).abs / 2.0
+      pontos_ate_agora -= pontos_a_perder
+
+      if verifica_se_acertou numero_secreto, chute
+          break
+      end
+
+  end
+
+  puts "Você ganhou #{pontos_ate_agora} pontos até agora!"
+end
+
+def nao_quero_jogar?
+    puts "Deseja jogar novamente? (S/N)"
+    quero_jogar = gets.strip
+    quero_jogar.upcase == "N"
+end
+
 nome = da_boas_vindas
 dificuldade = pede_dificuldade
 
-numero_secreto = sorteia_numero_secreto(dificuldade)
+loop do
 
-pontos_ate_agora = 1000
-limite_de_tentativas = 5
-chutes = []
+  joga(nome, dificuldade)
 
-for tentativa in 1..limite_de_tentativas
-
-    chute = pede_um_numero(chutes, tentativa, limite_de_tentativas)
-    chutes << chute
-
-    if(nome == "Felipe")
-      puts "Acertou!"
-      break
-    end
-
-    pontos_a_perder = (chute - numero_secreto).abs / 2.0
-    pontos_ate_agora -= pontos_a_perder
-
-    if verifica_se_acertou numero_secreto, chute
-        break
-    end
+  if nao_quero_jogar?
+    break
+  end
 
 end
-
-puts "Você ganhou #{pontos_ate_agora} pontos até agora!"
